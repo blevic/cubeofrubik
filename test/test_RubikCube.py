@@ -132,7 +132,7 @@ class TestRubikCube(unittest.TestCase):
             solution = cube_1.solve()
 
             cube_2 = RubiksCube()
-            cube_2.move(initial_scramble.replace(" ", "") + solution)
+            cube_2.move(initial_scramble + solution)
             self.assertTrue(cube_2.is_solved())
 
     def test_set_color(self):
