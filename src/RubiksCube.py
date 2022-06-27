@@ -196,7 +196,7 @@ class RubiksCube(RubiksCubeInterface):
             self.move(move)
             sequence.append(move)
 
-        return ' '.join(sequence)
+        return ''.join(sequence)
 
     def is_solved(self) -> bool:
         """Overrides RubiksCubeInterface.is_solved()"""
