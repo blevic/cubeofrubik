@@ -2,9 +2,9 @@ from itertools import permutations
 from random import choice
 from copy import deepcopy
 
-from Color import Color
-from RubiksCubeAlgorithms import layer_by_layer
-from RubiksCubeInterface import RubiksCubeInterface
+from .Color import Color
+from .RubiksCubeAlgorithms import layer_by_layer
+from .RubiksCubeInterface import RubiksCubeInterface
 
 CUBE_SIZE = 3
 

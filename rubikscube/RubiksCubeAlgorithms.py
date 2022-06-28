@@ -1,4 +1,4 @@
-from RubiksCubeInterface import RubiksCubeInterface
+from .RubiksCubeInterface import RubiksCubeInterface
 
 
 def base_layer(cube: RubiksCubeInterface) -> str:
