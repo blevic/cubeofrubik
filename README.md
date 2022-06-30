@@ -4,7 +4,7 @@ Rubik's cube model and solver
 To install:
     
 ```bash
-pip install rubikscube
+pip install cubeofrubik
 ```
 
 To use:
