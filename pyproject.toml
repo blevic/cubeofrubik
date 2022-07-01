@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cubeofrubik"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
-  { name="Breno Levi", email="brenolevi@ymail.com" },
+  { name="Breno Levi", email="blevic@proton.me" },
 ]
-description = "A rubiks cube model and solver"
+description = "A Rubik's cube model and solver"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.7"
@@ -17,7 +17,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-keywords = ["rubik's cube", "layer-by-layer", "singmaster", "puzzle", "solver"]
+keywords = ["rubik's cube", "layer-by-layer", "singmaster", "puzzle", "solver", "cube of rubik"]
 
 [project.urls]
 "Homepage" = "https://github.com/blevic/rubikscube"
