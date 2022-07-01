@@ -20,5 +20,5 @@ classifiers = [
 keywords = ["rubik's cube", "layer-by-layer", "singmaster", "puzzle", "solver", "cube of rubik"]
 
 [project.urls]
-"Homepage" = "https://github.com/blevic/rubikscube"
-"Bug Tracker" = "https://github.com/blevic/rubikscube/issues"
+"Homepage" = "https://github.com/blevic/cubeofrubik"
+"Bug Tracker" = "https://github.com/blevic/cubeofrubik/issues"
