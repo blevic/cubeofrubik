@@ -21,39 +21,32 @@ class RubiksCube(RubiksCubeInterface):
                        'L': [[Color.ORANGE] * n for _ in range(n)],
                        'R': [[Color.RED] * n for _ in range(n)]}
 
-    def draw(self) -> None:
+    def draw(self, print_emojis=True) -> None:
         """Overrides RubiksCubeInterface.draw()"""
 
-        def emoji(color):
-            emoji_map = {
-                Color.RED: '🟥',
-                Color.ORANGE: '🟧',
-                Color.YELLOW: '🟨',
-                Color.WHITE: '⬜',
-                Color.BLUE: '🟦',
-                Color.GREEN: '🟩',
-                Color.BLACK: '⬛'
-            }
-
-            return emoji_map[color]
+        def symbol(color):
+            if print_emojis:
+                return color.emoji
+            else:
+                return color.letter
 
         n = self._size
 
-        padding = emoji(Color.BLACK) + ' '
+        padding = symbol(Color.BLACK) + ' '
         pad_left = padding * n
         pad_right = padding * 2 * n
 
         for row in range(n):
-            upper_lines = pad_left + " ".join(map(emoji, self._faces['U'][row])) + " " + pad_right
+            upper_lines = pad_left + " ".join(map(symbol, self._faces['U'][row])) + " " + pad_right
             print(upper_lines)
 
         for row in range(n):
-            middle_lines = " ".join(map(emoji, self._faces['L'][row] + self._faces['F'][row] +
+            middle_lines = " ".join(map(symbol, self._faces['L'][row] + self._faces['F'][row] +
                                         self._faces['R'][row] + self._faces['B'][row]))
             print(middle_lines)
 
         for row in range(n):
-            lower_lines = pad_left + " ".join(map(emoji, self._faces['D'][row])) + " " + pad_right
+            lower_lines = pad_left + " ".join(map(symbol, self._faces['D'][row])) + " " + pad_right
             print(lower_lines)
 
     def move(self, turns: str) -> None:

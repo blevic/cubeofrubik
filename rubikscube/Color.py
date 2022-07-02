@@ -2,10 +2,17 @@ from enum import Enum
 
 class Color(Enum):
     """Colors enumeration"""
-    RED = 1
-    ORANGE = 2
-    YELLOW = 3
-    WHITE = 4
-    BLUE = 5
-    GREEN = 6
-    BLACK = 7
+    RED = ('R', '🟥')
+    ORANGE = ('O', '🟧')
+    YELLOW = ('Y', '🟨')
+    WHITE = ('W', '⬜')
+    BLUE = ('B', '🟦')
+    GREEN = ('G', '🟩')
+    BLACK = ('-', '⬛')
+
+    def __init__(self, letter, emoji):
+        self.letter = letter
+        self.emoji = emoji
+
+    def __str__(self):
+        return self.name
