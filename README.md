@@ -1,13 +1,13 @@
-# rubikscube
-Rubik's cube model and solver
+# cubeofrubik
+A Rubik's cube model and solver
 
-To install:
+### Installation
     
 ```bash
 pip install cubeofrubik
 ```
 
-To use:
+### Usage:
 ```python
 >>> from rubikscube import RubiksCube
 

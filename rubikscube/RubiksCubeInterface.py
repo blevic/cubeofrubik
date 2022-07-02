@@ -1,8 +1,13 @@
 class RubiksCubeInterface:
     """Interface of Rubik's Cube Model"""
 
-    def draw(self) -> None:
-        """Draw the cube"""
+    def draw(self, print_emojis: bool = True) -> None:
+        """
+        Draw the cube
+
+        Args:
+            print_emojis: if True, print emojis instead of letters representing colors
+        """
         pass
 
     def move(self, turns: str) -> None:
