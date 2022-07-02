@@ -63,3 +63,7 @@ pip install cubeofrubik
 ⬛ ⬛ ⬛ ⬜ ⬜ ⬜ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ⬛ ⬛ ⬛ ⬜ ⬜ ⬜ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ```
+
+### License
+
+This cubeofrubik is available under the MIT license. Read the LICENSE file for more info.
