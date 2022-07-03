@@ -3,7 +3,7 @@ import unittest
 from rubikscube.RubiksCube import RubiksCube
 
 
-class TestRubikCube(unittest.TestCase):
+class TestRubiksCube(unittest.TestCase):
 
     def test_valid_moves(self):
         valid_moves = ["F′", "", "FFF", "FpF′", "x2l2lll′", "FBUDLRLLpL′L2fulxMMEyzSS′S2"]
