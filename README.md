@@ -7,6 +7,9 @@ A Rubik's cube model and solver
 pip install cubeofrubik
 ```
 
+### Documentation
+Find complete documentation on: [cubeofrubik.rtfd.io](https://cubeofrubik.rtfd.io/).
+
 ### Usage:
 ```python
 >>> from rubikscube import RubiksCube
