@@ -100,8 +100,12 @@ class RubiksCubeInterface:
         """
         pass
 
-    def solve(self) -> str:
+    def solve(self, method: str, change_state: bool) -> str:
         """Solves the cube.
+
+        Args:
+            method: method to be used to solve the cube. It can be 'lbl' or 'kociemba'
+            change_state: if True, changes the cube state to the solved state. Otherwise, just returns the solution.
 
         Returns:
             list of moves that solve the cube; None if the cube is not solvable

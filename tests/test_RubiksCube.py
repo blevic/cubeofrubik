@@ -191,6 +191,63 @@ class TestRubiksCube(unittest.TestCase):
         cube.set_color('F', 'R')
         self.assertFalse(cube.is_solvable())
 
+    def test_solve_returns_none(self):
+        """Tests if unsolvable cubes and nonexistent methods make the solve() method return None."""
+        cube = RubiksCube()
+        f_color = cube.get_color('F')
+        b_color = cube.get_color('B')
+        cube.set_color('F', b_color)
+        cube.set_color('B', f_color)
+        solution_lbl = cube.solve(method='lbl', change_state=False)
+        solution_kociemba = cube.solve(method='kociemba')
+        self.assertIsNone(solution_lbl)
+        self.assertIsNone(solution_kociemba)
+
+        cube = RubiksCube()
+        cube.move("FBUDLRLLpL′L2fulxMMEyzSS′S2")
+        cube.set_color('F', 'R')
+        solution_kociemba = cube.solve(method='kociemba', change_state=False)
+        solution_lbl = cube.solve(method='lbl')
+        self.assertIsNone(solution_lbl)
+        self.assertIsNone(solution_kociemba)
+
+        cube = RubiksCube()
+        cube.scramble()
+        solution = cube.solve(method='some_nonexistent_method')
+        self.assertIsNone(solution)
+
+    def test_solve_solved_cube(self):
+        """Tests if a solved cube can be solved, and returns an empty string."""
+        cube = RubiksCube()
+        solution = cube.solve(method='kociemba')
+        self.assertEqual(solution, '')
+
+        cube = RubiksCube()
+        solution = cube.solve(method='lbl')
+        self.assertEqual(solution, '')
+
+        cube = RubiksCube()
+        cube.move("xyz")
+        solution = cube.solve(method='kociemba')
+        self.assertEqual(solution, '')
+
+        cube = RubiksCube()
+        cube.move("xyz")
+        solution = cube.solve(method='lbl')
+        self.assertEqual(solution, '')
+
+    def test_solve_change_state(self):
+        """Tests if change_state argument from solve method works as expected."""
+        cube = RubiksCube()
+        cube.scramble()
+        cube.solve(change_state=False)
+        self.assertFalse(cube.is_solved())
+
+        cube = RubiksCube()
+        cube.scramble()
+        cube.solve(change_state=True)
+        self.assertTrue(cube.is_solved())
+
 
 if __name__ == '__main__':
     unittest.main()

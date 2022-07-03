@@ -1,5 +1,6 @@
-from .RubiksCubeInterface import RubiksCubeInterface
 from copy import deepcopy
+from .RubiksCubeInterface import RubiksCubeInterface
+import kociemba
 
 class LayerByLayer(RubiksCubeInterface):
     """Implementation of the layer-by-layer solving algorithm.
@@ -16,8 +17,8 @@ class LayerByLayer(RubiksCubeInterface):
     def solve(self) -> str:
         """Solves the cube using the layer-by-layer algorithm.
 
-        This method doesn't change the state of the `original_cube` passed to the LayerByLayer constructor, as it operates only on
-        an internal copy of it.
+        This method doesn't change the state of the `original_cube` passed to the LayerByLayer constructor, as it
+        operates only on an internal copy of it.
 
         Returns:
             The moves to solve the cube, using LBL algorithm.
@@ -605,3 +606,70 @@ class LayerByLayer(RubiksCubeInterface):
         moves += self._top_layer()
 
         return moves
+
+
+class Kociemba(RubiksCubeInterface):
+    """Implementation of Herbert Kociemba's two-phase algorithm.
+
+    It uses muodov's `Kociemba`_ package, with additional checks, and using the cubeofrubik's interface.
+
+    Example:
+        >>> from rubikscube import RubiksCube
+        >>> cube = RubiksCube()
+        >>> cube.scramble()
+        >>> solution = Kociemba(cube).solve()
+
+    .. _Kociemba: https://pypi.org/project/kociemba/
+    """
+    def __init__(self, original_cube: RubiksCubeInterface):
+        self.cube = original_cube
+
+    def solve(self) -> str:
+        """Solves the cube using the Kociemba algorithm.
+
+        This method doesn't change the state of the `original_cube` passed to the Kociemba constructor, as it
+        just calls getter methods it exposes.
+
+        Returns:
+            The moves to solve the cube, using Kociemba algorithm.
+        """
+        if self.cube.is_solved():
+            return ""
+
+        return self._kociemba()
+
+    def _kociemba(self) -> str:
+        u_color = self.cube.get_color('U')
+        r_color = self.cube.get_color('R')
+        f_color = self.cube.get_color('F')
+        d_color = self.cube.get_color('D')
+        l_color = self.cube.get_color('L')
+        b_color = self.cube.get_color('B')
+
+        kociemba_str = ''
+
+        kociemba_map = {
+            u_color: 'U',
+            r_color: 'R',
+            f_color: 'F',
+            d_color: 'D',
+            l_color: 'L',
+            b_color: 'B'
+        }
+
+        facelet_positions = [
+            '11', '12', '13', '14', 'U', '16', '17', '18', '19',
+            '41', '42', '43', '44', 'R', '46', '47', '48', '49',
+            '01', '02', '03', '04', 'F', '06', '07', '08', '09',
+            '31', '32', '33', '34', 'D', '36', '37', '38', '39',
+            '21', '22', '23', '24', 'L', '26', '27', '28', '29',
+            '51', '52', '53', '54', 'B', '56', '57', '58', '59'
+        ]
+
+        for facelet_position in facelet_positions:
+            kociemba_str += kociemba_map[self.cube.get_color(facelet_position)]
+
+        solution = kociemba.solve(kociemba_str)
+        solution = solution.replace(" ", "").replace("'", "′")
+
+        return solution
