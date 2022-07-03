@@ -102,11 +102,7 @@ class RubiksCubeInterface:
         """Solves the cube.
 
         Returns:
-            list of moves that solve the cube
-
-        Raises:
-            ValueError: if the cube is not solvable
-            KeyError: if the cube is not solvable
+            list of moves that solve the cube; None if the cube is not solvable
         """
         pass
 

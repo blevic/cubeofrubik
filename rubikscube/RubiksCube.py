@@ -3,7 +3,7 @@ from random import choice
 from copy import deepcopy
 
 from .Color import Color
-from .RubiksCubeAlgorithms import layer_by_layer
+from .RubiksCubeAlgorithms import LayerByLayer
 from .RubiksCubeInterface import RubiksCubeInterface
 
 CUBE_SIZE = 3
@@ -369,10 +369,15 @@ class RubiksCube(RubiksCubeInterface):
         return ''.join(new_moves)
 
     def solve(self) -> str:
-        solution = layer_by_layer(self)
-        solution = self._remove_rotations(solution)
-        solution = self._remove_consecutive_moves(solution)
-        return solution
+        try:
+            solution = LayerByLayer(self).solve()
+            solution = self._remove_rotations(solution)
+            solution = self._remove_consecutive_moves(solution)
+            self.move(solution)
+        except (ValueError, KeyError):
+            solution = None
+        finally:
+            return solution
 
     def get_size(self) -> int:
         return self._size
