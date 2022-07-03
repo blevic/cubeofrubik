@@ -6,6 +6,9 @@
   <a href='https://pypi.org/project/cubeofrubik/'>
     <img src='https://img.shields.io/pypi/dm/cubeofrubik' alt='Downloads/Month' />
   </a>
+    <a href='https://github.com/blevic/cubeofrubik/actions/workflows/package-tests.yml'>
+    <img src='https://github.com/blevic/cubeofrubik/actions/workflows/package-tests.yml/badge.svg?branch=main' alt='Package Tests' />
+  </a>
   <a href='https://cubeofrubik.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/cubeofrubik/badge/?version=latest' alt='Documentation Status' />
   </a>
