@@ -3,7 +3,7 @@ from random import choice
 from copy import deepcopy
 
 from .Color import Color
-from .RubiksCubeAlgorithms import LayerByLayer
+from .RubiksCubeAlgorithms import LayerByLayer, Kociemba
 from .RubiksCubeInterface import RubiksCubeInterface
 
 CUBE_SIZE = 3
@@ -368,12 +368,23 @@ class RubiksCube(RubiksCubeInterface):
 
         return ''.join(new_moves)
 
-    def solve(self) -> str:
+    def solve(self, method='kociemba', change_state=True) -> str:
         try:
-            solution = LayerByLayer(self).solve()
-            solution = self._remove_rotations(solution)
-            solution = self._remove_consecutive_moves(solution)
-            self.move(solution)
+            if method == 'kociemba':
+                solution = Kociemba(self).solve()
+                cube_copy = deepcopy(self)
+                cube_copy.move(solution)
+                if not cube_copy.is_solved():
+                    raise ValueError("Solution is not valid!")
+            elif method == 'lbl':
+                solution = LayerByLayer(self).solve()
+                solution = self._remove_rotations(solution)
+                solution = self._remove_consecutive_moves(solution)
+            else:
+                raise ValueError("Invalid method")
+
+            if change_state:
+                self.move(solution)
         except (ValueError, KeyError):
             solution = None
         finally:
