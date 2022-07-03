@@ -3,14 +3,32 @@ from random import choice
 from copy import deepcopy
 
 from .Color import Color
-from .RubiksCubeAlgorithms import layer_by_layer
+from .RubiksCubeAlgorithms import LayerByLayer
 from .RubiksCubeInterface import RubiksCubeInterface
 
 CUBE_SIZE = 3
 
 
 class RubiksCube(RubiksCubeInterface):
-    """Models Rubik's Cube"""
+    """Implementation of the Rubik's Cube.
+
+    The cube is initialized with the standard colors configuration and in a solved state. The cube is represented by a
+    dictionary of faces. The keys are the face names and the values are lists of lists of colors. The faces are: F, B,
+    U, D, L, R. The colors are an enumeration: GREEN, BLUE, WHITE, YELLOW, ORANGE, RED.
+
+    Its exposed methods are:
+        - `draw()`: draws the cube.
+        - `move(turns)`: moves the cube according to the turns string.
+        - `scramble()`: scrambles the cube.
+        - `is_solved()`: returns True if the cube is in a solved state.
+        - `get_color(position)`: returns the color of the cube at the given position.
+        - `find_position(*colors)`: returns the position of a piece with some given colors.
+        - `solve()`: solves the cube and returns the steps with the solution.
+        - `get_size()`: returns the size of the cube.
+        - `set_color(position, color)`: sets the color of the cube at the given position.
+        - `set_all_colors(color_dict)`: sets all the colors of the cube, using a dictionary.
+        - `is_solvable()`: returns True if the cube is solvable.
+    """
 
     def __init__(self):
         self._size = n = CUBE_SIZE
@@ -22,8 +40,6 @@ class RubiksCube(RubiksCubeInterface):
                        'R': [[Color.RED] * n for _ in range(n)]}
 
     def draw(self, print_emojis=True) -> None:
-        """Overrides RubiksCubeInterface.draw()"""
-
         def symbol(color):
             if print_emojis:
                 return color.emoji
@@ -50,8 +66,6 @@ class RubiksCube(RubiksCubeInterface):
             print(lower_lines)
 
     def move(self, turns: str) -> None:
-        """Overrides RubiksCubeInterface.move(turns)"""
-
         move_base_functions = {
             'F': self._move_F,
             'x': self._move_x,
@@ -166,7 +180,6 @@ class RubiksCube(RubiksCubeInterface):
         self._faces['L'] = _saved_front
 
     def scramble(self, steps=20, wide_moves=False, slice_moves=False, cube_rotations=False) -> str:
-        """Overrides RubiksCubeInterface.scramble(steps)"""
         if steps < 1:
             return ""
 
@@ -192,8 +205,6 @@ class RubiksCube(RubiksCubeInterface):
         return ''.join(sequence)
 
     def is_solved(self) -> bool:
-        """Overrides RubiksCubeInterface.is_solved()"""
-
         def solved_face(face):
             return len(set([s for row in face for s in row])) == 1
 
@@ -358,10 +369,15 @@ class RubiksCube(RubiksCubeInterface):
         return ''.join(new_moves)
 
     def solve(self) -> str:
-        solution = layer_by_layer(self)
-        solution = self._remove_rotations(solution)
-        solution = self._remove_consecutive_moves(solution)
-        return solution
+        try:
+            solution = LayerByLayer(self).solve()
+            solution = self._remove_rotations(solution)
+            solution = self._remove_consecutive_moves(solution)
+            self.move(solution)
+        except (ValueError, KeyError):
+            solution = None
+        finally:
+            return solution
 
     def get_size(self) -> int:
         return self._size
