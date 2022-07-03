@@ -14,20 +14,20 @@ class RubiksCube(RubiksCubeInterface):
 
     The cube is initialized with the standard colors configuration and in a solved state. The cube is represented by a
     dictionary of faces. The keys are the face names and the values are lists of lists of colors. The faces are: F, B,
-    U, D, L, R. The colors are: GREEN, BLUE, WHITE, YELLOW, ORANGE, RED.
+    U, D, L, R. The colors are an enumeration: GREEN, BLUE, WHITE, YELLOW, ORANGE, RED.
 
     Its exposed methods are:
-        - draw(): draws the cube.
-        - move(turns): moves the cube according to the turns string.
-        - scramble(): scrambles the cube.
-        - is_solved(): returns True if the cube is in a solved state.
-        - get_color(position): returns the color of the cube at the given position.
-        - find_position(*colors): returns the position of a piece with some given colors.
-        - solve(): solves the cube and returns the steps with the solution.
-        - get_size(): returns the size of the cube.
-        - set_color(position, color): sets the color of the cube at the given position.
-        - set_all_colors(color_dict): sets all the colors of the cube, using a dictionary.
-        - is_solvable(): returns True if the cube is solvable.
+        - `draw()`: draws the cube.
+        - `move(turns)`: moves the cube according to the turns string.
+        - `scramble()`: scrambles the cube.
+        - `is_solved()`: returns True if the cube is in a solved state.
+        - `get_color(position)`: returns the color of the cube at the given position.
+        - `find_position(*colors)`: returns the position of a piece with some given colors.
+        - `solve()`: solves the cube and returns the steps with the solution.
+        - `get_size()`: returns the size of the cube.
+        - `set_color(position, color)`: sets the color of the cube at the given position.
+        - `set_all_colors(color_dict)`: sets all the colors of the cube, using a dictionary.
+        - `is_solvable()`: returns True if the cube is solvable.
     """
 
     def __init__(self):

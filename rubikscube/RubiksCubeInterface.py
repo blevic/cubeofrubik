@@ -10,11 +10,11 @@ class RubiksCubeInterface:
         pass
 
     def move(self, turns: str) -> None:
-        """Makes a sequence of moves.
+        """Makes a sequence of turns.
 
         .. code-block:: text
 
-            Allowed letters:
+            Allowed turns:
                  F: Front;  B: Back;  U: Up;  D: Down;  L: Left;  R: Right;
                  f: Front 2 layers;  b: Back 2 layers;
                  u: Up 2 layers;  d: Down 2 layers;
@@ -29,12 +29,14 @@ class RubiksCubeInterface:
                 If followed by a 'p' or a prime symbol (′), turn it anticlockwise; otherwise, turn it clockwise.
                 If followed by a '2', execute the operation twice.
 
-        Examples:
-             >>> valid_turns = ["F′", "", "FFF", "FpF′", "x2l2lll′", "FBUDLRLLpL′L2fulxMMEyzSS′S2"]
-             >>> invalid_turns = ["F'", "A", "m", "Fpp", "pF", "S22", "S3" "FfuUY", "F ", "F2′"]
-
         Raises:
             ValueError: Unrecognized move is requested
+
+        Examples:
+            >>> valid_turns = ["F′", "", "FFF", "FpF′", "x2l2lll′", "FBUDLRLLpL′L2fulxMMEyzSS′S2"]
+            >>> invalid_turns = ["F'", "A", "m", "Fpp", "pF", "S22", "S3" "FfuUY", "F ", "F2′"]
+            >>> for turn in valid_turns:
+            ...     cube.move(turn)
         """
         pass
 
@@ -53,7 +55,7 @@ class RubiksCubeInterface:
         pass
 
     def is_solved(self) -> bool:
-        """Responds whether the cube is solved."""
+        """Checks if the cube is solved."""
         pass
 
     def get_color(self, position: str) -> str:
@@ -107,7 +109,7 @@ class RubiksCubeInterface:
         pass
 
     def get_size(self) -> int:
-        """Returns the cube's size."""
+        """Returns the size of the cube."""
         pass
 
     def set_color(self, position: str, color: str) -> None:
@@ -134,9 +136,5 @@ class RubiksCubeInterface:
         pass
 
     def is_solvable(self) -> bool:
-        """Checks if the cube is solvable.
-
-        Returns:
-            True if the cube is solvable, False otherwise
-        """
+        """Checks if the cube is solvable."""
         pass
