@@ -1,29 +1,29 @@
-rubikscube package
+cubeofrubik package
 ==================
 
 Submodules
 ----------
 
-rubikscube.RubiksCube module
+cubeofrubik.RubiksCube module
 ----------------------------
 
-.. automodule:: rubikscube.RubiksCube
+.. automodule:: cubeofrubik.RubiksCube
    :members:
    :undoc-members:
    :show-inheritance:
 
-rubikscube.RubiksCubeAlgorithms module
+cubeofrubik.RubiksCubeAlgorithms module
 --------------------------------------
 
-.. automodule:: rubikscube.RubiksCubeAlgorithms
+.. automodule:: cubeofrubik.RubiksCubeAlgorithms
    :members:
    :undoc-members:
    :show-inheritance:
 
-rubikscube.RubiksCubeInterface module
+cubeofrubik.RubiksCubeInterface module
 -------------------------------------
 
-.. automodule:: rubikscube.RubiksCubeInterface
+.. automodule:: cubeofrubik.RubiksCubeInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ rubikscube.RubiksCubeInterface module
 Module contents
 ---------------
 
-.. automodule:: rubikscube
+.. automodule:: cubeofrubik
    :members:
    :undoc-members:
    :show-inheritance:

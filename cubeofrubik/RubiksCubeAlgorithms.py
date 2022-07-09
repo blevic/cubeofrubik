@@ -6,7 +6,7 @@ class LayerByLayer(RubiksCubeInterface):
     """Implementation of the layer-by-layer solving algorithm.
 
     Example:
-        >>> from rubikscube import RubiksCube
+        >>> from cubeofrubik import RubiksCube
         >>> cube = RubiksCube()
         >>> cube.scramble()
         >>> solution = LayerByLayer(cube).solve()
@@ -614,7 +614,7 @@ class Kociemba(RubiksCubeInterface):
     It uses muodov's `Kociemba`_ package, with additional checks, and using the cubeofrubik's interface.
 
     Example:
-        >>> from rubikscube import RubiksCube
+        >>> from cubeofrubik import RubiksCube
         >>> cube = RubiksCube()
         >>> cube.scramble()
         >>> solution = Kociemba(cube).solve()
