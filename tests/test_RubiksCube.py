@@ -1,6 +1,6 @@
 import unittest
 
-from rubikscube.RubiksCube import RubiksCube
+from cubeofrubik import RubiksCube
 
 
 class TestRubiksCube(unittest.TestCase):

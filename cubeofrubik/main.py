@@ -1,4 +1,4 @@
-from rubikscube.RubiksCube import RubiksCube
+from cubeofrubik import RubiksCube
 
 if __name__ == '__main__':
     cube = RubiksCube()

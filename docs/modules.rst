@@ -1,8 +1,8 @@
-rubikscube
+cubeofrubik
 ==========
 
 .. toctree::
    :maxdepth: 4
 
-   rubikscube
+   cubeofrubik
    tests

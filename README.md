@@ -26,10 +26,11 @@ pip install cubeofrubik
 Find complete documentation on: [cubeofrubik.rtfd.io](https://cubeofrubik.rtfd.io/).
 
 ### Usage:
-```python
->>> from rubikscube import RubiksCube
 
->>> cube = RubiksCube.RubiksCube()
+```python
+>>> from cubeofrubik import RubiksCube
+
+>>> cube = RubiksCube()
 
 >>> cube.draw()
 ⬛ ⬛ ⬛ ⬜ ⬜ ⬜ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
@@ -80,16 +81,22 @@ Find complete documentation on: [cubeofrubik.rtfd.io](https://cubeofrubik.rtfd.i
 ⬛ ⬛ ⬛ 🟨 🟨 🟥 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ⬛ ⬛ ⬛ 🟨 🟨 🟨 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ⬛ ⬛ ⬛ 🟨 🟨 🟨 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
+
 >>> cube.is_solvable()
 True
+
 >>> cube.is_solved()
 False
+
 >>> cube.get_color('F')
 'G'
+
 >>> cube.find_position('G', 'Y', 'R')
 'UFR'
+
 >>> cube.get_size()
 3
+
 >>> cube.set_color('01', 'R')
 >>> cube.draw()
 ⬛ ⬛ ⬛ ⬜ ⬜ 🟧 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
@@ -101,6 +108,7 @@ False
 ⬛ ⬛ ⬛ 🟨 🟨 🟥 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ⬛ ⬛ ⬛ 🟨 🟨 🟨 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
 ⬛ ⬛ ⬛ 🟨 🟨 🟨 ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 
+
 >>> cube.is_solvable()
 False
 ```
