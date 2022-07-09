@@ -1,11 +1,11 @@
 cubeofrubik package
-==================
+===================
 
 Submodules
 ----------
 
 cubeofrubik.RubiksCube module
-----------------------------
+-----------------------------
 
 .. automodule:: cubeofrubik.RubiksCube
    :members:
@@ -13,7 +13,7 @@ cubeofrubik.RubiksCube module
    :show-inheritance:
 
 cubeofrubik.RubiksCubeAlgorithms module
---------------------------------------
+---------------------------------------
 
 .. automodule:: cubeofrubik.RubiksCubeAlgorithms
    :members:
@@ -21,7 +21,7 @@ cubeofrubik.RubiksCubeAlgorithms module
    :show-inheritance:
 
 cubeofrubik.RubiksCubeInterface module
--------------------------------------
+--------------------------------------
 
 .. automodule:: cubeofrubik.RubiksCubeInterface
    :members:
