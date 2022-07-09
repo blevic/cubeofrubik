@@ -1,5 +1,5 @@
 cubeofrubik
-==========
+===========
 
 .. toctree::
    :maxdepth: 4
